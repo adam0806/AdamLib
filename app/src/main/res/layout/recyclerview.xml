@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.adam.lib.basic.BasicRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recyclerView"
+    android:layoutAnimation="@anim/anim_listview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+</com.adam.lib.basic.BasicRecyclerView>
