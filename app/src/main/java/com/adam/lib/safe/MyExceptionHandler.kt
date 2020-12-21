@@ -13,7 +13,7 @@ import java.io.StringWriter
 import java.lang.ref.WeakReference
 import java.util.*
 import android.os.Looper
-import com.adam.lib.crossprocess.MyPreference
+import com.adam.lib.widget.MyPreference
 import java.lang.Exception
 
 
