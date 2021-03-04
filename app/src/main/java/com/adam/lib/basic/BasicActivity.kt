@@ -1,6 +1,7 @@
 package com.adam.lib.basic
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
@@ -75,9 +76,14 @@ abstract class BasicActivity : AppCompatActivity(){
         LogUtils.d(TAG, "Lifecycle, onDestroy: $TAG", LogUtils.LIFECYCLE)
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        LogUtils.d(TAG, "Lifecycle, onSaveInstanceState: $TAG", LogUtils.LIFECYCLE)
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        LogUtils.d(TAG, "Lifecycle, onConfigurationChanged $TAG, orientation: "+newConfig.orientation)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        LogUtils.d(TAG, "Lifecycle, onSaveInstanceState $TAG")
     }
 
     override fun onDetachedFromWindow() {
