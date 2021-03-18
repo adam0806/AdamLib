@@ -18,20 +18,23 @@ class BasicLinearLayout : LinearLayout{
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        callback?.callback("LinearLayout($tag), dispatchTouchEvent, action:  ${event?.action}")
         var consume = super.dispatchTouchEvent(event)
-        callback?.callback("LinearLayout($tag), dispatchTouchEvent: $consume, action:  ${event?.action}")
+        callback?.callback("LinearLayout($tag), dispatchTouchEvent, consume: $consume, action:  ${event?.action}")
         return consume
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        callback?.callback("LinearLayout($tag), onTouchEvent, action:  ${event?.action}")
         var consume = super.onTouchEvent(event)
-        callback?.callback("LinearLayout($tag), onTouchEvent: $consume, action:  ${event?.action}")
+        callback?.callback("LinearLayout($tag), onTouchEvent, consume: $consume, action:  ${event?.action}")
         return consume
     }
 
     override fun onInterceptTouchEvent(event: MotionEvent?): Boolean {
+        callback?.callback("LinearLayout($tag), onInterceptTouchEvent, action:  ${event?.action}")
         var consume = intercept || super.onTouchEvent(event)
-        callback?.callback("LinearLayout($tag), onInterceptTouchEvent: $consume, action:  ${event?.action}")
+        callback?.callback("LinearLayout($tag), onInterceptTouchEvent, consume: $consume, action:  ${event?.action}")
         return consume
     }
 }
