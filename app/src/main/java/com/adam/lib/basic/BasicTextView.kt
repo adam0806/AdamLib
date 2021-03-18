@@ -17,12 +17,14 @@ class BasicTextView : TextView{
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        callback?.callback("TextView($text), dispatchTouchEvent, ${event?.action}")
-        return super.dispatchTouchEvent(event)//true表示, 自己不消費
+        var consume = super.dispatchTouchEvent(event)
+        callback?.callback("TextView($text), dispatchTouchEvent: $consume, action: ${event?.action}")
+        return consume//true表示, 自己不消費
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        callback?.callback("TextView($text), onTouchEvent, ${event?.action}")
-        return intercept || super.onTouchEvent(event)
+        var consume = intercept || super.onTouchEvent(event)
+        callback?.callback("TextView($text), onTouchEvent: $consume, action: ${event?.action}")
+        return consume
     }
 }
